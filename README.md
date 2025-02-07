@@ -2,6 +2,8 @@
 
 This project do not use any database, data is stored in memory. If you restart the server, all data will be lost.
 
+Delete route is protected by authentication.
+
 ## Setup
 
 ````
@@ -26,6 +28,7 @@ curl -X PUT http://localhost:8080/v1/patients/1 -H "Content-Type: application/js
 curl -X PUT http://localhost:8080/v1/patients/1 -H "Content-Type: application/json" -d '{}'
 
 curl -X DELETE http://localhost:8080/v1/patients/1
+curl -X DELETE http://localhost:8080/v1/patients/1 -H "Authorization: <your_token_here>"
 ```
 
 ## Authentication

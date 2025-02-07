@@ -1,6 +1,7 @@
 import { Router, Request, Response } from "express";
 import {PatientsController} from "../controllers/patients.controller";
 import {sendJsonResponse} from "../helpers/send-json-response";
+import {authMiddleware} from "../middlewares/auth.middleware";
 
 const router = Router();
 
@@ -64,7 +65,7 @@ router.put("/:id", (req: Request, res: Response) => {
   sendJsonResponse(res, response.toJSON());
 });
 
-router.delete("/:id", (req: Request, res: Response) => {
+router.delete("/:id", authMiddleware, (req: Request, res: Response) => {
   const { id } = req.params;
 
   if (!parseInt(id)) {

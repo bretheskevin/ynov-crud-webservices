@@ -19,7 +19,7 @@ router.post("/register", async (req: Request, res: Response) => {
     return;
   }
 
-  sendJsonResponse(res, { message: "User registered successfully", token: response.token });
+  sendJsonResponse(res, { message: "User registered successfully" });
 });
 
 router.post("/login", async (req: Request, res: Response) => {

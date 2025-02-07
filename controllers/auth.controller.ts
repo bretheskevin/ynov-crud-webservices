@@ -14,7 +14,7 @@ const users: { username: string, password: string }[] = []
 
 interface AuthSuccessResponse {
   success: true;
-  token: string;
+  token?: string;
 }
 
 interface AuthFailureResponse {
@@ -36,9 +36,7 @@ export class AuthController {
 
     users.push({ username, password: hashedPassword });
 
-    const token = jwt.sign({ username: username }, JWT_SECRET!, { expiresIn: "1h" });
-
-    return { success: true, token };
+    return { success: true };
   }
 
   static async login(username: string, password: string): Promise<AuthResponse> {
