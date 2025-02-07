@@ -13,7 +13,7 @@ app.get("/", (req: Request, res: Response) => {
   res.status(200).send("GET request received");
 });
 
-app.use("/patients", patientsRouter);
+app.use("/v1/patients", patientsRouter);
 
 app.use((req: Request, res: Response) => {
   res.status(404).send("404 Not Found");
