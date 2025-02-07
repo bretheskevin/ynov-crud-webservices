@@ -1,6 +1,11 @@
+# Doctoloube
+
+This project do not use any database, data is stored in memory. If you restart the server, all data will be lost.
+
 ## Setup
 
 ````
+cp .env.example .env
 npm install
 npm run start
 ````
@@ -21,4 +26,11 @@ curl -X PUT http://localhost:8080/v1/patients/1 -H "Content-Type: application/js
 curl -X PUT http://localhost:8080/v1/patients/1 -H "Content-Type: application/json" -d '{}'
 
 curl -X DELETE http://localhost:8080/v1/patients/1
+```
+
+## Authentication
+
+```
+curl -X POST http://localhost:8080/v1/auth/register -H "Content-Type: application/json" -d '{"username": "John Doe", "password": "password"}'
+curl -X POST http://localhost:8080/v1/auth/login -H "Content-Type: application/json" -d '{"username": "John Doe", "password": "password"}'
 ```
