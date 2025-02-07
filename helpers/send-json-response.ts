@@ -1,6 +1,5 @@
-import {ServerResponse} from "http";
+import { Response } from "express";
 
-export const sendJsonResponse = (res: ServerResponse, data: object) => {
-  res.writeHead(200, {"Content-Type": "application/json"});
-  res.end(JSON.stringify(data) + "\n");
-}
+export const sendJsonResponse = (res: Response, data: object) => {
+  res.status(200).json(data);
+};
